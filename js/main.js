@@ -1,6 +1,7 @@
 window.onload = () => {
     tops()
     u0()
+    u1()
 }
 
 function tops() {
@@ -38,6 +39,7 @@ function u0() {
     let colorHlight = "#ffffff"
 
     yq[0].style.backgroundColor = colorHlight
+    img[0].src = "img/u0/0.png"
 
     for (let i = 0; i < yq.length; i++) {
         yq[i].id = i
@@ -45,7 +47,7 @@ function u0() {
             for (let j = 0; j < yq.length; j++) {
                 if (this.id == j) {
                     yq[j].style.backgroundColor = colorHlight
-                    img[0].src = "img/Logo_" + j + ".png"
+                    img[0].src = "img/u0/" + j + ".png"
                     switch (j) {
                         case 0:
                             img[0].style.marginTop = "7%"
@@ -106,4 +108,31 @@ function go() {
         for (let i = 0; i < yq.length; i++)
             if (yq[i].style.backgroundColor == "rgb(255, 255, 255)")
                 location = ss[i] + text
+}
+
+function u1() {
+    let img = document.getElementById("u1").getElementsByTagName("img")
+    let div = document.getElementById("u1").getElementsByTagName("div")
+    let a = document.getElementById("u1").getElementsByTagName("a")
+    let a_Href = [
+        "https://www.gamersky.com/",
+        "https://linux.cn/",
+        "https://wiki.archlinux.org/",
+        "https://www.v2ex.com/",
+    ]
+
+    for (let i = 0; i < img.length; i++) {
+        div[i].style.display = "none"
+        a[i].href = a_Href[i]
+        img[i].src = "img/u0/" + 1 + ".png"
+        img[i].id = i
+        img[i].onmouseover = function () {
+            for (let j = 0; j < img.length; j++) {
+                if (this.id == j)
+                    div[j].style.display = "block"
+                else
+                    div[j].style.display = "none"
+            }
+        }
+    }
 }
